@@ -90,7 +90,7 @@ export class   CalculatorComponent implements OnInit {
   }
 
 onAdminEdit(){
-
+this.router.navigate(['/calculator-edit'])
 }
   }
 

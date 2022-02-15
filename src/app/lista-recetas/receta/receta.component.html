@@ -1,0 +1,31 @@
+<!-- <a
+ style= "cursor: pointer;"
+ [routerLink] = "[index]"
+ routerLinkActive= "active"
+  class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+    <p class="list-group-item-text">{{ recipe.description }}</p>
+  </div>
+  <span class="pull-right">
+        <img
+          [src]="recipe.imagePath"
+          alt="{{ recipe.name }}"
+          class="img-responsive"
+          style="max-height: 50px;">
+      </span>
+</a> -->
+
+<a routerLinkActive= "active" style="cursor: pointer;"  [routerLink] = "[index]" >
+<mat-card class="receta-card " >
+  <mat-card-title-group>
+    <mat-card-title>{{recipe.nombre}}</mat-card-title>
+    <mat-card-subtitle *ngFor = "let ing of recipe.ingredientes"> ·{{ing.name}} </mat-card-subtitle>
+    <img mat-card-sm-image [src]="recipe.imagePath" >
+  </mat-card-title-group>
+  <mat-card-content >
+<!--
+{{recipe.preparacion}} -->
+  </mat-card-content>
+</mat-card>
+</a>

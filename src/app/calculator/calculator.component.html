@@ -1,0 +1,73 @@
+<div class="calculate-container">
+
+
+    <div class="calculate-box">
+      <div class="mat-table mat-elevation-z8 calcualate-table grid">
+        <!-- <tr class="mat-header-row "> -->
+          <span class="mat-header-cell">Nombre</span>
+          <span class="mat-header-cell">Gramos</span>
+          <span class="mat-header-cell">Ml</span>
+          <span class="mat-header-cell">Tazas</span>
+          <span class="mat-header-cell">Cucharadas</span>
+
+        <!-- </tr> -->
+        <!-- <tr class="mat-row"> -->
+          <span class="mat-cell select-cell">
+            <mat-select name="" id="" [(ngModel)]="selected" >
+              <mat-option *ngFor="let medida of medidas" [value]="medida">
+                {{medida}}
+
+              </mat-option>
+            </mat-select>
+          </span>
+          <span class="mat-cell">
+            <mat-form-field appearance="outline"><input matInput type="number" #gramos (change)="calculate()">
+            </mat-form-field>
+          </span>
+          <span class="mat-cell">
+            <mat-form-field appearance="outline"><input matInput type="number" [value]="ml" readonly></mat-form-field>
+          </span>
+          <span class="mat-cell">
+            <mat-form-field appearance="outline"><input matInput type="number" [value]="tazas" readonly></mat-form-field>
+          </span>
+          <span class="mat-cell">
+            <mat-form-field appearance="outline"><input matInput type="number" [value]="cucharadas" readonly>
+            </mat-form-field>
+          </span>
+        <!-- </tr> -->
+        </div>
+
+    <button (click)="calculate()" mat-raised-button color="warn">Calculate</button>
+    <button mat-raised-button color="primary" class="navigate" (click)="onEnter()">
+      Mis recetas
+    </button>
+  </div>
+
+
+  <div class="medida-box">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 medida-table" *ngIf="dataSource">
+      <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ column.header }}
+        </th>
+        <td mat-cell *matCellDef="let row">
+          {{ column.cell(row) }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns">
+        <!-- <input matInput type="text" value="value"> -->
+      </tr>
+    </table>
+    <button mat-raised-button color="warn" (click)="onAdminEdit()">
+      Editar tabla de datos
+    </button>
+  </div>
+</div>
+
+
+
+
+
+

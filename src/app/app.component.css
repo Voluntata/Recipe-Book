@@ -1,0 +1,22 @@
+/*
+ body{
+   height: max-content;
+   overflow: hidden;
+
+
+ } */
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+}
+
+main {
+  margin-top: 5%;
+  /* overflow: auto; */
+  z-index: 5;
+  height: max-content;
+}
+

@@ -1,0 +1,25 @@
+.detalle-card {
+  /* width: 100%; */
+  padding: 10%;
+  margin-left: 2%;
+
+}
+
+mat-card-header{
+  padding: 1%;
+}
+
+.ingredients{
+  margin-top: 1%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  background: url(//img.weblogssl.com/g/xataka4/common/border-dashed-2.png) 0 bottom repeat-x;
+  box-sizing: border-box;
+}
+
+h3{
+  border-bottom: 1px solid blue
+}
+
+
