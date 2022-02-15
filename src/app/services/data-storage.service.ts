@@ -11,7 +11,7 @@ export class DataStorageService{
     private recipeService: RecipeService
 
   ){}
-
+//guardar recetas en DB
 storeRecipes(){
   const recipes = this.recipeService.getRecipes();
   this.http.put(
@@ -21,7 +21,7 @@ storeRecipes(){
     console.log(response)
   })
 }
-
+//obtener recetas de DB
 fetchRecipes(){
   return this.http.get<Receta[]>(
     'https://recipebook-e9a31-default-rtdb.europe-west1.firebasedatabase.app/recipes.json'
@@ -36,7 +36,7 @@ fetchRecipes(){
 })
   )
 }
-
+//borrar receta de DB
 deleteRecipe(index: number){
   console.log(('https://recipebook-e9a31-default-rtdb.europe-west1.firebasedatabase.app/recipes.json/'+index))
  // this.http.delete('https://recipebook-e9a31-default-rtdb.europe-west1.firebasedatabase.app/recipes.json/'+index)

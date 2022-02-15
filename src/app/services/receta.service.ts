@@ -6,12 +6,12 @@ import { Receta } from '../models/receta.model';
 @Injectable()
 export class RecipeService {
 
- recipesChanged = new Subject<Receta[]>();
+  recipesChanged = new Subject<Receta[]>();
 
-public unidades: string[] = [
-  'gr', 'ml', 'cup', 'tbsp', 'tsp', 'u', 'medida'
-]
-private recipes: Receta[] = [];
+  public unidades: string[] = [
+    'gr', 'ml', 'cup', 'tbsp', 'tsp', 'u', 'medida'
+  ]
+  private recipes: Receta[] = [];
 
   // public recipes: Receta[] = [
   //   new Receta(
@@ -34,32 +34,33 @@ private recipes: Receta[] = [];
   //       ]),
   //   ]
 
-    setRecipes(recipes: Receta[]){
-      this.recipes = recipes;
-      this.recipesChanged.next(this.recipes.slice());
-    }
 
-    getRecipes() {
-      return this.recipes.slice();
-    }
-
-   getRecipe(index:number){
-     return this.recipes[index];
-   }
-
-   addRecipe(recipe: Receta){
-     this.recipes.push(recipe);
-     this.recipesChanged.next(this.recipes.slice());
-   }
-
-   updateRecipe(index: number, newRecipe: Receta){
-     this.recipes[index] = newRecipe;
-     this.recipesChanged.next(this.recipes.slice());
-   }
-
-   deleteRecipe(index:number){
-     this.recipes.splice(index,1);
-     this.recipesChanged.next(this.recipes.slice());
-   }
-
+  setRecipes(recipes: Receta[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
   }
+//obtener recetas
+  getRecipes() {
+    return this.recipes.slice();
+  }
+//obtener recipe pr ID
+  getRecipe(index: number) {
+    return this.recipes[index];
+  }
+//añadir receta
+  addRecipe(recipe: Receta) {
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+//actualizar receta
+  updateRecipe(index: number, newRecipe: Receta) {
+    this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+//borrar receta
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+}

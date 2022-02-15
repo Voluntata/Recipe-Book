@@ -6,7 +6,7 @@ import { catchError, tap } from "rxjs/operators";
 import { throwError, BehaviorSubject, Subject } from "rxjs";
 
 import { User } from "./user.model";
-import { Router } from "@angular/router";
+import { ResolveEnd, Router } from "@angular/router";
 
 export interface AuthResponseData {
   kind: string;
@@ -15,7 +15,7 @@ export interface AuthResponseData {
   refreshToken: string;
   expiresIn: string;
   localId: string;
-  registered?: boolean;
+
 }
 
 @Injectable({ providedIn: "root" })
@@ -25,7 +25,7 @@ user = new BehaviorSubject<User|null>(null);
   private tokenExpirationTimer: any;
 
   constructor(private http: HttpClient, private router: Router) { }
-
+//registrarse con Firebase Authentification
   signup(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
@@ -34,6 +34,7 @@ user = new BehaviorSubject<User|null>(null);
           email: email,
           password: password,
           returnSecureToken: true,
+
         }
       )
       .pipe(
@@ -48,7 +49,7 @@ user = new BehaviorSubject<User|null>(null);
         })
       );
   }
-
+//login con Firebase Authentification
   login(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
@@ -57,6 +58,7 @@ user = new BehaviorSubject<User|null>(null);
           email: email,
           password: password,
           returnSecureToken: true,
+
         }
 
       )
@@ -73,12 +75,15 @@ user = new BehaviorSubject<User|null>(null);
       );
   }
 
+
+  //mantener el login al actualizar la pagina
   autoLogin() {
     const userData: {
       email: string;
       id: string;
       _token: string;
       _tokenExpirationDate: string;
+
     } = JSON.parse(localStorage.getItem('userData') as string);
 
     if (!userData) {
@@ -89,7 +94,8 @@ user = new BehaviorSubject<User|null>(null);
       userData.email,
       userData.id,
       userData._token,
-      new Date(userData._tokenExpirationDate)
+      new Date(userData._tokenExpirationDate),
+
     );
 
     if (loadedUser.token) {
@@ -99,7 +105,7 @@ user = new BehaviorSubject<User|null>(null);
     }
 
   }
-
+ //salir de la cecion
   logout() {
     this.user.next(null);
 
@@ -111,7 +117,7 @@ user = new BehaviorSubject<User|null>(null);
     this.tokenExpirationTimer = null;
   }
 
-
+//salir de la secion automaticamente en 16minutos
   autoLogout(expirationDuration: number) {
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
@@ -149,4 +155,6 @@ user = new BehaviorSubject<User|null>(null);
     }
     return throwError(() => new Error(errorMessage));
   }
+
+
 }

@@ -1,62 +1,68 @@
-.calculate-container{
-display: flex;
-flex-direction: column;
-height: max-content;
+.calculate-container {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
 
 }
-.calcualate-table{
-  display:none;
+
+.calcualate-table {
+  display: none;
 }
-.calculate-box{
+
+.calculate-box {
   border-bottom: 1px solid gray;
 }
 
-.navigate{
+.navigate {
   margin: 1%;
 }
+
 table {
   width: 80%;
   margin: 1% auto;
 }
 
 
-mat-form-field{
+mat-form-field {
 
   padding: 0;
   margin: 0;
 
 }
-td, th{
+
+td, th {
   margin: 0;
   padding: 0;
   width: 15%;
 }
-mat-select{
+
+mat-select {
   min-width: 100px;
 }
 
-input{
+input {
   padding: 0;
   margin: 0;
 
 }
-button{
+
+button {
   margin: 1% 10% 1% 1%;
   float: right;
 }
 
-.grid{
+.grid {
   width: 80%;
   margin: 1% auto;
   display: grid;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 
-.grid > span{
+.grid>span {
   padding: 8px 4px;
 }
 
-.select-cell{
+.select-cell {
   text-align: center;
   font-weight: bold;
 
@@ -64,42 +70,43 @@ button{
 
 
 @media (max-width: 1112px) {
-.grid{
-  margin-top: 5%;
-}
-
-  td, th{
-    margin: 0;
-    padding: 0;
-    width:80px;
+  .grid {
+    margin-top: 5%;
   }
 
-  mat-select{
+  td, th {
+    margin: 0;
+    padding: 0;
+    width: 80px;
+  }
+
+  mat-select {
     min-width: 80px;
   }
 
-  mat-form-field{
+  mat-form-field {
     max-width: 100px;
   }
 
-  .grid >span.mat-header-cell{
+  .grid>span.mat-header-cell {
     text-align: center;
   }
 }
 
 @media (max-width: 576px) {
-  .grid >span.mat-header-cell{
+  .grid>span.mat-header-cell {
     transform: rotate(90deg);
     height: fit-content;
     text-align: center;
     align-content: center;
 
   }
-  .grid{
+
+  .grid {
     margin-top: 25%;
   }
 
-  mat-form-field{
+  mat-form-field {
     width: 50px;
   }
- }
+}

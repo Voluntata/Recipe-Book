@@ -1,53 +1,56 @@
-button{
+button {
   margin: 3% 10%;
   width: 80%;
 }
 
-.container{
+.container {
   margin: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.container-left{
+
+.container-left {
   position: fixed;
   width: 35%;
   padding-top: 3%;
 }
 
-.container-right{
+.container-right {
   width: 65%;
   margin-left: 35%;
 }
 
 @media (max-width: 1112px) {
-  .container{
+  .container {
     display: flex;
     flex-direction: column;
     width: 100%;
 
   }
 
-  .container-left{
+  .container-left {
     position: relative;
     width: 100%;
     margin: 0;
   }
-  .container-right{
+
+  .container-right {
     width: 100%;
     margin-left: 0;
     position: relative;
   }
 
-  button{
+  button {
     margin-top: 10%;
   }
- }
- @media (max-width: 576px) {
+}
 
-  .container-right{
+@media (max-width: 576px) {
+
+  .container-right {
     width: 100%;
     margin-left: 0;
     position: relative;
   }
- }
+}

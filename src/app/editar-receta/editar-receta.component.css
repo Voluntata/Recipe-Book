@@ -1,8 +1,9 @@
-.main-wrapper{
+.main-wrapper {
   width: 100%;
   height: 100%;
 
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -12,63 +13,63 @@ form {
 
 }
 
-img{
+img {
   margin-top: 1%;
 }
 
-.edit-input{
+.edit-input {
   width: 75%
 }
 
-.small-input{
+.small-input {
   width: 15%;
 }
 
-.buttons{
+.buttons {
   display: flex;
   justify-content: flex-start;
   padding: 2%;
 }
 
-.buttons button{
+.buttons button {
   margin: 1%;
 }
 
-.ing-box{
+.ing-box {
   margin: 0 1%
 }
 
 @media (max-width: 1112px) {
-.form{
-  width: 100%;
-}
+  .form {
+    width: 100%;
+  }
 
   /* .main-wrapper{
   max-width: 90%;
   } */
 
-  .edit-input{
+  .edit-input {
     width: 100%
   }
 
-  .small-input{
+  .small-input {
     width: 25%;
   }
 
- }
+}
 
- @media (max-width: 576px) {
-  form{
+@media (max-width: 576px) {
+  form {
     min-width: 350px;
 
     padding: 0;
   }
 
-  .edit-input{
-  width: 75%
-}
+  .edit-input {
+    width: 75%
+  }
 
-.small-input{
-  width: 15%;
+  .small-input {
+    width: 15%;
+  }
 }
- }

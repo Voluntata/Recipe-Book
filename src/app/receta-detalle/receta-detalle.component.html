@@ -1,17 +1,15 @@
-<!-- <p>receta-detalle works!</p>
-<img mat-card-sm-image [src]="recipe.imagePath" > -->
-<!-- <button mat-raised-button color="primary" (click) = "onEditRecipe()">Editar receta</button> -->
-
 <mat-card class="detalle-card">
   <mat-card-header>
     <img mat-card-avatar [src]="recipe.imagePath">
 
-    <mat-card-title> <h1> {{recipe.nombre}}</h1></mat-card-title>
+    <mat-card-title>
+      <h1> {{recipe.nombre}}</h1>
+    </mat-card-title>
     <mat-card-subtitle></mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <h3>Ingredientes</h3>
-    <ul *ngFor =  "let ing of recipe.ingredientes">
+    <ul *ngFor="let ing of recipe.ingredientes">
       <li class="ingredients"><span>{{ing.name}}</span> <span>{{ing.amount}} {{ing.unidad}}</span> </li>
     </ul>
   </mat-card-content>
@@ -22,8 +20,8 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-stroked-button color="accent">Compartir</button>
-    <button mat-stroked-button color="primary" (click) = "onEditRecipe()">Editar</button>
-    <button mat-stroked-button color="warn" (click) = "onDeleteRecipe()">Borrar</button>
+    <button mat-stroked-button color="accent" (click)="copyToClipboard()">Compartir</button>
+    <button mat-stroked-button color="primary" (click)="onEditRecipe()">Editar</button>
+    <button mat-stroked-button color="warn" (click)="onDeleteRecipe()">Borrar</button>
   </mat-card-actions>
 </mat-card>

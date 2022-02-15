@@ -1,41 +1,39 @@
 <div class="calculate-container">
 
 
-    <div class="calculate-box">
-      <div class="mat-table mat-elevation-z8 calcualate-table grid">
-        <!-- <tr class="mat-header-row "> -->
-          <span class="mat-header-cell">Nombre</span>
-          <span class="mat-header-cell">Gramos</span>
-          <span class="mat-header-cell">Ml</span>
-          <span class="mat-header-cell">Tazas</span>
-          <span class="mat-header-cell">Cucharadas</span>
+  <div class="calculate-box">
+    <div class="mat-table mat-elevation-z8 calcualate-table grid">
 
-        <!-- </tr> -->
-        <!-- <tr class="mat-row"> -->
-          <span class="mat-cell select-cell">
-            <mat-select name="" id="" [(ngModel)]="selected" >
-              <mat-option *ngFor="let medida of medidas" [value]="medida">
-                {{medida}}
+      <span class="mat-header-cell">Nombre</span>
+      <span class="mat-header-cell">Gramos</span>
+      <span class="mat-header-cell">Ml</span>
+      <span class="mat-header-cell">Tazas</span>
+      <span class="mat-header-cell">Cucharadas</span>
 
-              </mat-option>
-            </mat-select>
-          </span>
-          <span class="mat-cell">
-            <mat-form-field appearance="outline"><input matInput type="number" #gramos (change)="calculate()">
-            </mat-form-field>
-          </span>
-          <span class="mat-cell">
-            <mat-form-field appearance="outline"><input matInput type="number" [value]="ml" readonly></mat-form-field>
-          </span>
-          <span class="mat-cell">
-            <mat-form-field appearance="outline"><input matInput type="number" [value]="tazas" readonly></mat-form-field>
-          </span>
-          <span class="mat-cell">
-            <mat-form-field appearance="outline"><input matInput type="number" [value]="cucharadas" readonly>
-            </mat-form-field>
-          </span>
-        <!-- </tr> -->
-        </div>
+      <span class="mat-cell select-cell">
+        <mat-select name="" id="" [(ngModel)]="selected">
+          <mat-option *ngFor="let medida of medidas" [value]="medida">
+            {{medida}}
+
+          </mat-option>
+        </mat-select>
+      </span>
+      <span class="mat-cell">
+        <mat-form-field appearance="outline"><input matInput type="number" #gramos (change)="calculate()">
+        </mat-form-field>
+      </span>
+      <span class="mat-cell">
+        <mat-form-field appearance="outline"><input matInput type="number" [value]="ml" readonly></mat-form-field>
+      </span>
+      <span class="mat-cell">
+        <mat-form-field appearance="outline"><input matInput type="number" [value]="tazas" readonly></mat-form-field>
+      </span>
+      <span class="mat-cell">
+        <mat-form-field appearance="outline"><input matInput type="number" [value]="cucharadas" readonly>
+        </mat-form-field>
+      </span>
+
+    </div>
 
     <button (click)="calculate()" mat-raised-button color="warn">Calculate</button>
     <button mat-raised-button color="primary" class="navigate" (click)="onEnter()">
@@ -60,14 +58,8 @@
         <!-- <input matInput type="text" value="value"> -->
       </tr>
     </table>
-    <button mat-raised-button color="warn" (click)="onAdminEdit()">
+    <!-- <button mat-raised-button color="warn" (click)="onAdminEdit()">
       Editar tabla de datos
-    </button>
+    </button> -->
   </div>
 </div>
-
-
-
-
-
-

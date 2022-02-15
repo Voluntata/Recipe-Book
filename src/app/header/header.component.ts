@@ -10,10 +10,11 @@ import { AuthService } from '../authentification/auth.service';
 })
 export class HeaderComponent implements OnInit {
   isAuthenticated = false;
-private userSub!: Subscription;
+  private userSub!: Subscription;
   constructor(private dataService: DataStorageService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    //comprobar si el usuario esta registrado
     this.userSub = this.authService.user.subscribe(user => {
       this.isAuthenticated = !!user;
       console.log(!user);
@@ -21,7 +22,7 @@ private userSub!: Subscription;
     })
   }
 
-  onLogout(){
+  onLogout() {
     this.authService.logout();
   }
 }

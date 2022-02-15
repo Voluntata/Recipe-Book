@@ -1,10 +1,8 @@
-import { validateHorizontalPosition } from '@angular/cdk/overlay'
+
 import { Component, OnInit } from '@angular/core'
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { RecipeService } from '../services/receta.service'
-import { Ingredient } from '../models/ingredient.model'
-import { Receta } from '../models/receta.model'
 import { DataStorageService } from '../services/data-storage.service';
 
 @Component({
@@ -23,12 +21,13 @@ export class EditarRecetaComponent implements OnInit {
     public router: Router,
     private route: ActivatedRoute,
     private dataService: DataStorageService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     //  this.initForm();
     this.route.params.subscribe((params: Params) => {
-      this.id = +params['id']
+      this.id = +params['id'];
+      //si el id de receta ya existe - utilizar el modo de edicion
       this.editMode = params['id'] != null
       this.initForm()
     })
@@ -36,10 +35,10 @@ export class EditarRecetaComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.editMode) {
+    if (this.editMode) { //si es modo de edicion -actualizar datos de receta
       this.recipeServise.updateRecipe(this.id, this.recipeForm.value);
       this.dataService.storeRecipes();
-    } else {
+    } else { //si es nueva receta - añadirla
       this.recipeServise.addRecipe(this.recipeForm.value);
       this.dataService.storeRecipes();
     }
@@ -62,13 +61,13 @@ export class EditarRecetaComponent implements OnInit {
       }),
     )
   }
-
+//iniciar el formulario
   private initForm() {
     let nombre = '';
     let preparacion = '';
     let imagePath = '';
     let ingredientes = new FormArray([]);
-
+   //si es modo de edicion - obtener datos de la receta
     if (this.editMode) {
       const recipe = this.recipeServise.getRecipe(this.id)
       nombre = recipe.nombre
@@ -99,10 +98,12 @@ export class EditarRecetaComponent implements OnInit {
     })
   }
 
+  //recibir ingredientes
   get controls() {
     return (<FormArray>this.recipeForm.get('ingredientes')).controls
   }
 
+  //borrar ingredientes
   onDeleteIngredient(index: number) {
     (<FormArray>this.recipeForm.get('ingredientes')).removeAt(index);
 

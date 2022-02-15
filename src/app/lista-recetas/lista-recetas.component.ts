@@ -22,20 +22,17 @@ export class ListaRecetasComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    //  this.subscription = this.recipeService.recipesChanged.subscribe(
-    //    (recipes: Receta[])=>{
-    //      this.recipes = recipes;
-    //      console.log(this.recipes)
-    //    }
-    //  )
-    //  this.recipes = this.recipeService.getRecipes();
+//recibir recetas de DB
+   this.recipes = this.recipeService.getRecipes();
    this.subscription  = this.dataService.fetchRecipes().subscribe((recipes) => {
     this.recipes = recipes;
     });
-    this.router.navigate(['recetas'])
+    this.recipes = this.recipeService.getRecipes();
+
+   this.router.navigate(['recetas'])
     //console.log(this.recipes);
   }
-
+//añadir receta nueva
   addRecipe() {
     this.router.navigate(['new'], { relativeTo: this.route });
   }

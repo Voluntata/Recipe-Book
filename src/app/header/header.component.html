@@ -1,12 +1,12 @@
-<mat-toolbar  color="primary"  class="fixed-header">
+<mat-toolbar color="primary" class="fixed-header">
   <mat-toolbar-row>
-  <span><img  src="./assets/Food-Logo.png"  style="width:90px;"></span>
+    <span><img src="./assets/Food-Logo.png" style="width:90px;"></span>
 
-  <a  mat-button  routerLink="/calculator">Calculator</a>
-  <a  mat-button  routerLink="/recetas"  routerLinkActive="active" *ngIf = "isAuthenticated">Recetas</a>
+    <a mat-button routerLink="/calculator">Calculator</a>
+    <a mat-button routerLink="/recetas" routerLinkActive="active" *ngIf="isAuthenticated">Recetas</a>
 
-  <a  mat-button  routerLink="/login"  *ngIf = "!isAuthenticated">Login</a>
-  <a  mat-button  routerLink="/register"  *ngIf = "!isAuthenticated">Registrarse</a>
-  <button mat-button  (click)="onLogout()"  *ngIf = "isAuthenticated">Logout</button>
+    <a mat-button routerLink="/login" *ngIf="!isAuthenticated">Login</a>
+    <a mat-button routerLink="/register" *ngIf="!isAuthenticated">Registrarse</a>
+    <button mat-button (click)="onLogout()" *ngIf="isAuthenticated">Logout</button>
   </mat-toolbar-row>
-  </mat-toolbar>
+</mat-toolbar>
